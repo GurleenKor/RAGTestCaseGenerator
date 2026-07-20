@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RAG Test Case Generator</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">AI-assisted QA workflow</p>
+          <h1>Generate grounded test cases</h1>
+          <p class="subtitle">
+            Enter your requirement and let the RAG pipeline turn it into structured test cases.
+          </p>
+        </div>
+      </header>
+
+      <main class="dashboard">
+        <section class="panel form-panel">
+          <div class="panel-title-row">
+            <h2>Request</h2>
+            <span class="hint">Supports positive, negative, validation, and security flows</span>
+          </div>
+          <form id="generate-form" enctype="multipart/form-data">
+            <label for="requirement-file">Requirement document</label>
+            <input id="requirement-file" type="file" accept=".txt,.md,.pdf" />
+
+            <label for="requirement">Requirement text (optional fallback)</label>
+            <textarea id="requirement" rows="6" placeholder="Optional: paste text if you do not want to upload a file"></textarea>
+
+            <label for="model-name">Model name (optional)</label>
+            <input id="model-name" type="text" value="qwen2.5-coder:latest" placeholder="qwen2.5-coder:latest" />
+
+            <button type="submit">Generate test cases</button>
+          </form>
+        </section>
+
+        <section class="panel output-panel">
+          <div class="output-header">
+            <h2>Result</h2>
+            <span id="status-pill" class="status-pill idle">Idle</span>
+          </div>
+          <div id="output-card" class="output-card">
+            <p class="empty-state">Your generated test cases will appear here.</p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>

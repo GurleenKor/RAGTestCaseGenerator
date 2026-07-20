@@ -1,6 +1,7 @@
 import rag_pipeline
 from rag_pipeline import (
     build_test_case_prompt,
+    extract_requirement_text,
     generate_test_cases,
     load_prompt_template,
     resolve_path,
@@ -31,6 +32,12 @@ def test_build_test_case_prompt_requires_grounded_non_generic_output():
     assert "Use ONLY the information provided" in prompt
     assert "Do not provide generic" in prompt
     assert "Grounding Evidence" in prompt
+
+
+def test_extract_requirement_text_reads_plain_text_uploads():
+    text = extract_requirement_text(b"The sign-in page requires email and password.", "requirements.txt")
+
+    assert "email and password" in text
 
 
 def test_validate_ollama_model_requires_value(monkeypatch):

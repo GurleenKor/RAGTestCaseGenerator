@@ -15,12 +15,9 @@ Generate detailed test cases for {focus_area}.
 Rules:
 - Every test case must be traceable to the excerpt above.
 - Do not add requirements that are not in the document.
-- For each test case include:
-  1. Test Case ID
-  2. Scenario
-  3. Preconditions
-  4. Test Steps
-  5. Expected Result
-  6. Test Type (Positive/Negative/Security/Validation)
-- Add a "Grounding Evidence" field for each test case that cites the exact requirement text or a close paraphrase from the excerpt.
+- Format the output as a table with one row per test case.
+- Use these exact columns: Test Case ID | Scenario | Preconditions | Test Steps | Expected Result | Test Type | Grounding Evidence
+- Keep each row compact and concise.
+- Use the values "Yes" or "No" for boolean-style checks where relevant, and write "Not specified in the document" when a detail is missing.
+- Use a line with "### Test Case 1" before each row if needed for readability.
 - If the requirement is not present in the excerpt, explicitly state "Not specified in the document" in the relevant field instead of making assumptions.
