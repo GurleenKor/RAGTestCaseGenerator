@@ -3,4 +3,5 @@
 __pycache__/
 .pytest_cache/
 *.pyc
-chroma_db/0b*/
+uploads/
+chroma_db/
